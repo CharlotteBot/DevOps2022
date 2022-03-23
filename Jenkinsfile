@@ -1,6 +1,14 @@
 pipeline {
   agent any
   stages {
+		stage('Login server') {
+			steps {
+				sshagent(credentials:['UbuntuLogin']) {
+					sh 'ssh ubuntu@54.188.123.136'
+				}
+				echo "success login"
+			}
+		}
 		stage('Docker build') {
 			steps {
 				sh 'docker build --platform linux/amd64 -t mgrosmaninho/devops2022:0.01 .'
