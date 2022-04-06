@@ -3,8 +3,8 @@ pipeline {
   stages {
 		stage('Login server') {
 			steps {
-				sshagent(credentials:['UbuntuLogin']) {
-					sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.188.123.136'
+				sshagent(credentials:['user1']) {
+					sh 'ssh -o StrictHostKeyChecking=no user1@172.31.27.242'
 				}
 				echo "success login"
 			}
